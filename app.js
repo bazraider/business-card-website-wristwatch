@@ -44,7 +44,7 @@ app.use(morgan('dev')); // для логирования входящих зап
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключение роутеров
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
