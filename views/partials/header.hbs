@@ -1,1 +1,9 @@
-<a href="#">WatchShop</a>
+<a href="/">WatchShop</a>
+{{#if admin}}
+  <li>
+    Привет, {{admin}}!
+  </li>
+  <li>
+    <a href="/logout">logout</a>
+  </li>
+{{/if}}
