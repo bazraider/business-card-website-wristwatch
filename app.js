@@ -10,7 +10,7 @@ const expressSession = require('express-session');
 // для хранения даннах из куки
 const FileStore = require('session-file-store')(expressSession);
 const hbs = require('hbs');
-// const { sequelize } = require('./db/models');
+const { sequelize } = require('./db/models');
 const indexRouter = require('./routes/indexRouter');
 
 const app = express();
@@ -44,19 +44,19 @@ app.use(morgan('dev')); // для логирования входящих зап
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключение роутеров
-// app.use('/', indexRouter);
+app.use('/', indexRouter);
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
   /* eslint-disable no-console */
   console.log(`The server is listening on port ${PORT}...`);
 
-  // try {
-  //   await sequelize.authenticate({ logging: false });
-  //   console.log('Connecting to the database successfully');
-  // } catch (error) {
-  //   console.log('Failed to connect to DB');
-  //   console.log(error.message);
-  // }
+  try {
+    await sequelize.authenticate({ logging: false });
+    console.log('Connecting to the database successfully');
+  } catch (error) {
+    console.log('Failed to connect to DB');
+    console.log(error.message);
+  }
   /* eslint-enable */
 });
