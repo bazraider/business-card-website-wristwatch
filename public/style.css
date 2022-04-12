@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+}
+
+.title-order-form {
+  margin: 20px;
+  font-size: 3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgb(231, 231, 231);
+}
+
+.container-order-form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-order-form div .field {
+  border-radius: 3px;
+  border: none;
+  margin: 10px;
+  width: 500px;
+  height: 40px;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+.container-order-form div .message {
+  width: 600px;
+  height: 300px;
+  resize: none;
+}
+
+.container-order-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-order-form form .btn {
+  margin: 10px;
+  font-size: 1.1rem;
+  width: 200px;
+  height: 50px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(71, 71, 71);
+  outline: none;
+  border: none;
+}
+
+
