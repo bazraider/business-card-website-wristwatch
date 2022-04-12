@@ -12,6 +12,7 @@ const FileStore = require('session-file-store')(expressSession);
 const hbs = require('hbs');
 const { sequelize } = require('./db/models');
 const indexRouter = require('./routes/indexRouter');
+const orderFormRouter = require('./routes/orderFormRouter');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -45,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключение роутеров
 app.use('/', indexRouter);
+app.use('/', orderFormRouter);
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
