@@ -2,7 +2,7 @@
 require('dotenv').config();
 // модуль для работы с путями в файловой системе
 const path = require('path');
-const bcrypt = require('bcrypt'); // шифрование пароля
+// const bcrypt = require('bcrypt'); // шифрование пароля
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -10,22 +10,23 @@ const expressSession = require('express-session');
 // для хранения даннах из куки
 const FileStore = require('session-file-store')(expressSession);
 const hbs = require('hbs');
-// const { sequelize } = require('./db/models');
+const { sequelize } = require('./db/models');
 const indexRouter = require('./routes/indexRouter');
 const adminRouter = require('./routes/adminRouter');
+const { adminName, sessionLogger } = require('./middleware/common');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
 const sessionConfig = {
   store: new FileStore(), // добавить после установки session-file-store
-  secret: 'keyboard cat',
+  secret: 'MyCookieName',
   cookie: {
     maxAge: 365 * 24 * 60 * 60 * 1000, // устанавливаем сколько живет кука
-    httpOnly: false,
+    httpOnly: true,
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
 };
 
 app.locals.title = 'Магазин часов';
@@ -37,6 +38,7 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials')); // задать
 
 app.use(cookieParser());
 app.use(expressSession(sessionConfig));
+app.use(adminName);
 
 // app.use — подключить промежуточные функции
 app.use(express.urlencoded({ extended: true })); // для чтения тела запросов в формате urlencoded
@@ -53,12 +55,12 @@ app.listen(PORT, async () => {
   /* eslint-disable no-console */
   console.log(`The server is listening on port ${PORT}...`);
 
-  // try {
-  //   await sequelize.authenticate({ logging: false });
-  //   console.log('Connecting to the database successfully');
-  // } catch (error) {
-  //   console.log('Failed to connect to DB');
-  //   console.log(error.message);
-  // }
+  try {
+    await sequelize.authenticate({ logging: false });
+    console.log('Connecting to the database successfully');
+  } catch (error) {
+    console.log('Failed to connect to DB');
+    console.log(error.message);
+  }
   /* eslint-enable */
 });
