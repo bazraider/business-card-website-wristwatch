@@ -13,7 +13,7 @@ router.post('/', multer.single('img'), async (req, res) => {
   const { path } = req.file;
 
   try {
-    await db.client.create(
+    await db.Client.create(
       {
         name: name.toLowerCase(),
         email,
