@@ -49,11 +49,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключение роутеров
 app.use('/', indexRouter);
-<<<<<<< HEAD
 app.use('/', orderFormRouter);
-=======
 app.use('/', adminRouter);
->>>>>>> fa0fa94c8858d622a98a9dca864df6b76351ac61
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
