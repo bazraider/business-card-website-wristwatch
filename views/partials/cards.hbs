@@ -1,7 +1,7 @@
 <script defer src="/js/admin.js"></script>
 
 <div id="cards" class="container">
-  <div class="row align-items-start">
+  <div class="row align-items-start js-products">
     {{#each products}}
       <div class="col">
         <div class="card">
@@ -11,7 +11,7 @@
           <p>{{this.description}}</p>
           <h3>{{this.price}} $</h3>
           <button type="button" class="btn btn-secondary js-hidden">редактировать</button>
-          <button type="button" class="btn btn-danger js-hidden">удалить</button>
+          <button type="button" class="btn btn-danger js-hidden js-delete" id="delete{{this.id}}">удалить</button>
         </div>
       </div>
     {{/each}}
