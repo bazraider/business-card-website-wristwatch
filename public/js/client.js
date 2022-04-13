@@ -14,21 +14,36 @@ const handleOrderForm = async (event) => {
   const name = document.getElementById('name-on-order-form').value;
   const email = document.getElementById('email-on-order-form').value;
   const phone = document.getElementById('phone-on-order-form').value;
-  const img = document.getElementById('file-upload').value;
+  const img = document.getElementById('file-upload');
   const message = document.getElementById('message-on-order-form').value;
+
+  const formdata = new FormData();
+
+  formdata.append('name', name);
+  formdata.append('email', email);
+  formdata.append('phone', phone);
+  formdata.append('message', message);
+  formdata.append('img', img.files[0], img.files[0].name);
+
+  // for (let i = 0; i < img.files.length; i += 1) {
+  //   formdata.append('img', img.files[i], img.files[i].name);
+  // }
+
+  console.log('formdata', formdata.img);
 
   const response = await fetch('/', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name,
-      email,
-      phone,
-      img,
-      message,
-    }),
+    // headers: {
+    //   'Content-Type': 'form/multipart',
+    // },
+    body: formdata,
+    // JSON.stringify({
+    //   name,
+    //   email,
+    //   phone,
+    //   img,
+    //   message,
+    // }),
   });
 
   const messageStatus = document.createElement('p');

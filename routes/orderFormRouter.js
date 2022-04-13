@@ -1,21 +1,24 @@
 const express = require('express');
 const db = require('../db/models');
+const multer = require('../middleware/multer.middleware');
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', multer.single('img'), async (req, res) => {
+  // console.log(req.body.name);
+  // console.log(req.body.img);
+  const {
+    name, email, phone, message,
+  } = req.body;
+  const { path } = req.file;
+
   try {
-    const {
-      name, email, phone, img, message,
-    } = req.body;
-    console.log(name, email, phone, img, message);
-    console.log(db.client);
     await db.client.create(
       {
         name: name.toLowerCase(),
         email,
         phone,
-        img,
+        img: path.slice(6),
         message,
         createdAt: new Date(),
         updatedAt: new Date(),
