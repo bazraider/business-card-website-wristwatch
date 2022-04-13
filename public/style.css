@@ -1,6 +1,6 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   margin: 0;
@@ -8,6 +8,38 @@ body {
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+.slider {
+  height: 91vh !important;
+  width: 100% !important;
+}
+
+#carouselExampleCaptions {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.carousel-inner {
+  height: 100% !important;
+}
+
+.carousel-item {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.carousel-item img {
+  object-fit: cover !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .title-order-form {
@@ -73,5 +105,3 @@ body {
   outline: none;
   border: none;
 }
-
-
