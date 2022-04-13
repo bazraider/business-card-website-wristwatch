@@ -14,6 +14,12 @@
       <a class="nav-link col" href="/#orderForm">
         <div>Заказать</div>
       </a>
+      {{#if admin}}
+      <div class="nav-link col">Привет, {{admin}}!</div>
+      <a class="nav-link col" href="/logout">
+        <div>Выйти</div>
+      </a>
+      {{/if}}
     </div>
   </div>
   </div>

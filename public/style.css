@@ -172,3 +172,6 @@ header {
 }
 
 
+.js-hidden{
+  display: none;
+}
