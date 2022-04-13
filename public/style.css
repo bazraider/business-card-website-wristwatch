@@ -4,9 +4,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap");
 
-/* * {
+* {
   box-sizing: border-box;
-} */
+}
 
 body {
   margin: 0;
@@ -146,6 +146,31 @@ header {
   outline: none;
   border: none;
 }
+
+.container-order-form div #file-upload {
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.1rem;
+  outline: none;
+  border: none;
+}
+
+.alert-successfully {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+
+.alert-failure {
+  padding: 15px;
+  border: 1px solid #e9cdc6;
+  border-radius: 4px;
+  color: #76433c;
+  background-color: #f0dcd8;
+}
+
 
 .js-hidden{
   display: none;
