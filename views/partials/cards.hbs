@@ -1,37 +1,27 @@
+<script defer src="/js/admin.js"></script>
+
 <div id="cards" class="container">
   <div class="row align-items-start">
-    <div class="col">
-      <div class="card">
-        <img class="card__img"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRHV8RvDQlmoobsgrTc2ifO41tLaLhgKkwpg&usqp=CAU">
-        <h2> Часы </h2>
-        <p> Описание часов</p>
-        <h3> 4000$</h3>
-        <button type="button" class="btn btn-secondary">редактировать</button>
-        <button type="button" class="btn btn-danger">удалить</button>
+    {{#each products}}
+      <div class="col">
+        <div class="card">
+          <img class="card__img"
+            src="{{this.img}}">
+          <h2>{{this.title}}</h2>
+          <p>{{this.description}}</p>
+          <h3>{{this.price}} $</h3>
+          <button type="button" class="btn btn-secondary js-hidden">редактировать</button>
+          <button type="button" class="btn btn-danger js-hidden">удалить</button>
+        </div>
       </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdQTRp8OwSjhoaQOesoTYiU3CBWxcKIW_I6g&usqp=CAU">
-        <h2> Часы </h2>
-        <p> Описание часов</p>
-        <h3> 7000$</h3>
-        <button type="button" class="btn btn-secondary">редактировать</button>
-        <button type="button" class="btn btn-danger">удалить</button>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwVe5hNFO6X-8T8ZEIk1Oh9ooGqjeAlDpjJQ&usqp=CAU">
-        <h2> Часы </h2>
-        <p> Описание часов</p>
-        <h3> 3000$</h3>
-        <button type="button" class="btn btn-secondary">редактировать</button>
-        <button type="button" class="btn btn-danger">удалить</button>
-      </div>
-    </div>
+    {{/each}}
+    {{#if admin}}
+      <button type="button" class="btn btn-secondary">добавить новый товар</button>
+    {{/if}}
   </div>
 </div>
+
+{{#if admin}}
+<div id="js-admin" style="display:none">{{admin}}</div>
+{{/if}}
+
