@@ -150,3 +150,7 @@ header {
 .js-hidden{
   display: none;
 }
+
+.err{
+  color: red;
+}

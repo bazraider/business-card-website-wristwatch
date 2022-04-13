@@ -3,7 +3,7 @@ const { Product } = require('../db/models');
 
 indexRouter.get('/', async (req, res) => {
   const products = await Product.findAll({ raw: true });
-  console.log(products);
+  // console.log(products);
   res.render('index', { products });
 });
 

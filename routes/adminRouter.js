@@ -17,7 +17,8 @@ adminRouter.post('/register', async (req, res) => {
     });
     // req.session.admin = administrator.dataValues.name; // - тут не используем так как сначала надо авторизовать права админа
     // console.log('all good!!! ====>', req.session.admin);
-    res.send('ваша заявка на получение прав администратора принята');
+    // res.send('ваша заявка на получение прав администратора принята');
+    res.sendStatus(200);
   } catch (err) {
     res.send(err.message);
   }
@@ -26,25 +27,28 @@ adminRouter.post('/register', async (req, res) => {
 adminRouter.post('/login', async (req, res) => {
   const { inputMail, inputPass } = req.body;
   try {
-    const administrator = await Admin.findOne({ where: { email: inputMail } });
-    // console.log(administrator);
-    if (administrator.approved) {
-      const passwordCheck = await bcrypt.compare(inputPass, administrator.password);
-      // console.log('login ----->', passwordCheck);
-      if (passwordCheck) {
-        req.session.admin = administrator.dataValues.name;
-        res.redirect('/'); // успешный вход
+    if (inputMail && inputPass) {
+      const administrator = await Admin.findOne({ where: { email: inputMail } });
+      // console.log(administrator);
+      if (administrator.approved) {
+        const passwordCheck = await bcrypt.compare(inputPass, administrator.password);
+        // console.log('login ----->', passwordCheck);
+        if (passwordCheck) {
+          req.session.admin = administrator.dataValues.name;
+          // res.sendStatus(200); // успешный вход
+          res.redirect('/');
+        } else {
+          res.json('Пароль неверный'); // ! пароль не правильный
+        }
       } else {
-        res.send('неправильный пароль'); // ! пароль не правильный
+        res.send('Вам еще не одобрили права администратора');
       }
     } else {
-      res.send('вам еще не одобрили права администратора');
+      res.send('Заполните все поля');
     }
   } catch (err) {
     res.send(err.message);
   }
-
-  // res.send(superUser); // когда создали if else - удаляем
 });
 
 adminRouter.get('/logout', async (req, res) => {
