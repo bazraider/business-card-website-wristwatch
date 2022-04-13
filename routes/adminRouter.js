@@ -38,7 +38,7 @@ adminRouter.post('/login', async (req, res) => {
           // res.sendStatus(200); // успешный вход
           res.redirect('/');
         } else {
-          res.json('Пароль неверный'); // ! пароль не правильный
+          res.send('Пароль неверный');
         }
       } else {
         res.send('Вам еще не одобрили права администратора');
