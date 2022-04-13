@@ -1,6 +1,6 @@
 const adminRouter = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Admin } = require('../db/models');
+const { Admin, Product } = require('../db/models');
 
 adminRouter.get('/login', async (req, res) => {
   res.render('admin/login');
@@ -55,6 +55,12 @@ adminRouter.get('/logout', async (req, res) => {
   } else {
     res.redirect('main');
   }
+});
+
+adminRouter.delete('/products/delete', async (req, res) => {
+  const { id } = req.body;
+  await Product.destroy({ where: { id } });
+  res.sendStatus(200);
 });
 
 module.exports = adminRouter;
