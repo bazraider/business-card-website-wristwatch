@@ -1,6 +1,12 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Gravitas+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap");
+
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   margin: 0;
@@ -8,6 +14,73 @@ body {
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+.slider {
+  height: 100vh !important;
+  width: 100% !important;
+}
+
+#carouselExampleCaptions {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.carousel-inner {
+  height: 100% !important;
+}
+
+.carousel-item {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.carousel-item img {
+  object-fit: cover !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+#cards {
+  padding-top: 120px;
+  margin-top: -70px;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
+}
+
+#aboutus {
+  padding-top: 100px;
+  margin-top: -70px;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+  text-align: center;
+}
+
+#aboutus h2 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 50px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+#aboutus h3 {
+  font-family: "Comfortaa", sans-serif;
+  font-weight: 900;
+}
+
+#aboutus p {
+  font-family: "Comfortaa", sans-serif;
 }
 
 .title-order-form {
@@ -73,5 +146,3 @@ body {
   outline: none;
   border: none;
 }
-
-
