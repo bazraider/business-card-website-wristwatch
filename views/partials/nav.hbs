@@ -4,7 +4,13 @@
       <img id="logo" src="/img/logo.png" alt="" width="70" height="65" class="d-inline-block align-text-top">
       <div class="logoText">Watchers</div>
     </a>
-    <div class="row align-items-center" style="width: 45%; text-align: center; font-size: x-large;">
+    <div class="row align-items-center" style="width: 73%; text-align: center; font-size: x-large;">
+      {{#if admin}}
+      <div class="nav-link col">Привет, {{admin}}!</div>
+      <a class="nav-link col" href="/logout">
+        <div>Выйти</div>
+      </a>
+      {{/if}}
       <a id="nav_buttons" class="nav-link col" href="/#cards-and-name" style="color: #ee247c;">
         <div style="width: 250px;">Примеры работ</div>
       </a>
@@ -14,12 +20,6 @@
       <a id="nav_buttons" class="nav-link col" href="/#orderForm" style="color: #ee247c;">
         <div>Заказать</div>
       </a>
-      {{#if admin}}
-      <div class="nav-link col">Привет, {{admin}}!</div>
-      <a class="nav-link col" href="/logout">
-        <div>Выйти</div>
-      </a>
-      {{/if}}
     </div>
   </div>
   </div>
