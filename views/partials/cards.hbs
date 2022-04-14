@@ -58,3 +58,28 @@
     scale: 1.8
   });
 </script> --}}
+<script defer src="/js/admin.js"></script>
+
+<div id="cards" class="container">
+  <div class="row align-items-start js-products">
+    {{#each products}}
+    <div class="col">
+      <div class="card">
+        <img class="card__img" src="{{this.img}}">
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <h3>{{this.price}} $</h3>
+        <button type="button" class="btn btn-secondary js-hidden">редактировать</button>
+        <button type="button" class="btn btn-danger js-hidden js-delete" id="delete{{this.id}}">удалить</button>
+      </div>
+    </div>
+    {{/each}}
+    {{#if admin}}
+    <button type="button" class="btn btn-secondary">добавить новый товар</button>
+    {{/if}}
+  </div>
+</div>
+
+{{#if admin}}
+<div id="js-admin" style="display:none">{{admin}}</div>
+{{/if}}
