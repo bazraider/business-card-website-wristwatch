@@ -1,19 +1,25 @@
 <nav class="navbar navbar-light bg-light fixed-top p-0" style="height: 9vh;">
   <div class="container">
-    <a class="navbar-brand" href="/">
-      <img src="/img/logo.png" alt="" width="70" height="65" class="d-inline-block align-text-top">
-      Watchers
+    <a class="logo_text_container" class="navbar-brand" href="/">
+      <img id="logo" src="/img/logo.png" alt="" width="70" height="65" class="d-inline-block align-text-top">
+      <div class="logoText">Watchers</div>
     </a>
-    <div class="row align-items-center">
-      <a class="nav-link col" href="/#cards">
-        <div>Примеры работ</div>
+    <div class="row align-items-center" style="width: 45%; text-align: center; font-size: x-large;">
+      <a id="nav_buttons" class="nav-link col" href="/#cards-and-name" style="color: #ee247c;">
+        <div style="width: 250px;">Примеры работ</div>
       </a>
-      <a class="nav-link col" href="/#aboutus">
+      <a id="nav_buttons" class="nav-link col" href="/#aboutus" style="color: #ee247c;">
         <div>О нас</div>
       </a>
-      <a class="nav-link col" href="/#orderForm">
+      <a id="nav_buttons" class="nav-link col" href="/#orderForm" style="color: #ee247c;">
         <div>Заказать</div>
       </a>
+      {{#if admin}}
+      <div class="nav-link col">Привет, {{admin}}!</div>
+      <a class="nav-link col" href="/logout">
+        <div>Выйти</div>
+      </a>
+      {{/if}}
     </div>
   </div>
   </div>

@@ -1,12 +1,18 @@
-<form method="POST" action="/register" style="margin-top: 100px;">
+<script defer src="/js/register.js"></script>
+
+<form class="js-register" style="margin-top: 100px;">
+{{!-- <form method="POST" action="/register" style="margin-top: 100px;"> --}}
   <input name="inputName" placeholder="input name" type="text" minlength="2">
   <input name="inputMail" placeholder="input email" type="email">
   <input name="inputPass" placeholder="input password" type="password" minlength="6">
-  <button>Зарегистрироваться</button>
+  <button type="submit">Зарегистрироваться</button>
+  <p class="js-hidden err js-reg-err">Заполните все поля</p>
+  <p class="js-hidden js-reg-answer">Ваша заявка на получение прав администратора принята</p>
 </form>
 <hr>
+{{!-- <form class="js-login" > --}}
 <form method="POST" action="/login">
   <input name="inputMail" placeholder="input email" type="email">
   <input name="inputPass" placeholder="input password" type="password" minlength="6">
-  <button>Войти</button>
+  <button type="submit">Войти</button>
 </form>
