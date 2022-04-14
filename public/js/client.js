@@ -67,4 +67,4 @@ const handleOrderForm = async (event) => {
   }
 };
 
-document.getElementById('btn-order-form').addEventListener('click', handleOrderForm);
+document.getElementById('btn-order-form')?.addEventListener('click', handleOrderForm);
