@@ -1,0 +1,24 @@
+<div class="container-personalArea">
+  <h1 class="head">Личный кабинет</h1>
+  <div>
+    <ul>
+      <li><button><a href="/personalArea/downloadProducts">Скачать список всех заказов</a></button></li>
+      <li><button><a href="/personalArea/download">Выгрузить информацию о клиентах</a></button></li>
+    </ul>
+  </div>
+  <div>
+    <h3>Заказы</h3>
+    {{#each orders}}
+      <p>{{this.name}}</p>
+      <p>{{this.email}}</p>
+      <p>{{this.phone}}</p>
+      <p>{{this.message}}</p>
+
+      <div>
+        {{#each img}}
+          <img src="{{this.img}}">
+        {{/each }}
+      </div>
+    {{/each }}
+  </div>
+</div>
