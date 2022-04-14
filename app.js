@@ -30,7 +30,7 @@ const sessionConfig = {
   saveUninitialized: false,
 };
 
-app.locals.title = 'Магазин часов';
+app.locals.title = 'Watchers | Магазин часов';
 
 // app.set — задать внутренние настройки сервера
 app.set('view engine', 'hbs'); // задать движок для генерации шаблонов
