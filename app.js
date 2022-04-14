@@ -54,6 +54,10 @@ app.use('/', orderFormRouter);
 app.use('/', adminRouter);
 app.use('/personalArea', personalAreaRouter);
 
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
   /* eslint-disable no-console */
