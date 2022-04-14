@@ -6,8 +6,8 @@ indexRouter.get('/', async (req, res) => {
   res.render('index');
 });
 
-indexRouter.get('/cards', async (req, res) => {
-  res.render('cards');
-});
+// indexRouter.get('/cards', async (req, res) => {
+//   res.render('cards');
+// });
 
 module.exports = indexRouter;
