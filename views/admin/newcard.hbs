@@ -1,0 +1,32 @@
+<h3 style="padding-top: 180px; margin-top: -70px; margin-left: 20px;">Добавить новую модель</h3>
+
+<div class="form-wrapper" role="main">
+  <form name="newcard" method="post" action="/products/newcard" data-id="{{entry.id}}" enctype="multipart/form-data">
+    <div class="product_title" style="margin: 20px;">
+      <label for="product_title_input">Product title:</label>
+      <input id="product_title_input" name="title" type="text">
+    </div>
+
+    <div class=" product_description" style="margin: 20px;">
+      <label for="product_description_input">Product description:</label>
+      <input id="product_description_input" name="description" type="text">
+    </div>
+
+    <div class=" product_price" style="margin: 20px;">
+      <label for="product__input">Product price:</label>
+      <input id="product_price_input" name="price" type="integer">
+    </div>
+
+    <div class="product_img" style="margin: 20px;">
+      <label for="product_img">Product img:</label>
+      <img src="{{entry.img}}" alt="тут должно было быть изображение" style="width: 300px; border: 1px solid black">
+    </div>
+
+    <div style="margin: 20px;">
+      <label for="file-update"></label>
+      <input id="file-update" type="file" name="img" id="img" {{!-- multiple --}}>
+    </div>
+
+    <input type="submit" value="Добавить модель" class="button" style="margin-left: 20px;">
+  </form>
+</div>

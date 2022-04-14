@@ -1,6 +1,8 @@
 const adminRouter = require('express').Router();
 const bcrypt = require('bcrypt');
+const async = require('hbs/lib/async');
 const { Admin, Product } = require('../db/models');
+const multer = require('../middleware/multer.middleware');
 
 adminRouter.get('/login', async (req, res) => {
   res.render('admin/login');
@@ -65,6 +67,57 @@ adminRouter.delete('/products/delete', async (req, res) => {
   const { id } = req.body;
   await Product.destroy({ where: { id } });
   res.sendStatus(200);
+});
+
+// Ручка на редактирование товара
+adminRouter.get('/products/edit/:id', async (req, res) => {
+  const entry = await Product.findOne({ where: { id: req.params.id } });
+  res.render('admin/edit', { entry });
+});
+
+adminRouter.post('/products/edit/:id', multer.single('img'), async (req, res) => {
+  const { title, description, price } = req.body;
+  const { path } = req.file;
+  await Product.update(
+    {
+      title: req.body.title,
+      description: req.body.description,
+      img: path.slice(6),
+      price: req.body.price,
+    },
+    {
+      where: { id: req.params.id },
+      returning: true,
+      plain: true,
+    },
+  );
+  res.redirect('/');
+});
+
+// Ручка на добавление нового товара
+adminRouter.get('/products/newcard', async (req, res) => {
+  res.render('admin/newcard');
+});
+
+adminRouter.post('/products/newcard', multer.single('img'), async (req, res) => {
+  const {
+    id, title, description, price,
+  } = req.body;
+  const { path } = req.file;
+  await Product.create(
+    {
+      title: req.body.title,
+      description: req.body.description,
+      img: path.slice(6),
+      price: req.body.price,
+    },
+    {
+      where: { id: req.body.id },
+      returning: true,
+      plain: true,
+    },
+  );
+  res.redirect('/');
 });
 
 module.exports = adminRouter;
