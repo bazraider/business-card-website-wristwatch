@@ -23,13 +23,13 @@ const handleOrderForm = async (event) => {
   formdata.append('email', email);
   formdata.append('phone', phone);
   formdata.append('message', message);
-  formdata.append('img', img.files[0], img.files[0].name);
+  // formdata.append('img', img.files[0], img.files[0].name);
 
-  // for (let i = 0; i < img.files.length; i += 1) {
-  //   formdata.append('img', img.files[i], img.files[i].name);
-  // }
+  for (let i = 0; i < img.files.length; i += 1) {
+    formdata.append('img', img.files[i], img.files[i].name);
+  }
 
-  console.log('formdata', formdata.img);
+  console.log('formdata', formdata);
 
   const response = await fetch('/', {
     method: 'POST',
