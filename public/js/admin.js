@@ -28,7 +28,7 @@ allProducts?.addEventListener('click', async (event) => {
 
     // console.log('response del', response);
     if (response.status === 200) { // будем удалять только если все ок и статус 200
-      allProducts.removeChild(event.target.parentNode.parentNode); // удаляем родительских элемент кнопки (маленький div) со страницы, но не из базы
+      allProducts.removeChild(event.target.parentNode); // удаляем родительских элемент кнопки (маленький div) со страницы, но не из базы
     }
   }
 });
