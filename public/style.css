@@ -323,6 +323,7 @@ h4 {
 
 .title-order-form {
   margin: 20px;
+  color: #ee247c;
   font-size: 1.7rem;
   font-weight: 600;
   cursor: pointer;
@@ -380,7 +381,7 @@ h4 {
   width: 200px;
   height: 50px;
   color: rgb(255, 255, 255);
-  background-color: rgb(71, 71, 71);
+  background-color: #ee247c;
   outline: none;
   border: none;
 }
