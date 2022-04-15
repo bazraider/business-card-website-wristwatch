@@ -2,23 +2,32 @@
   <h1 class="head">Личный кабинет</h1>
   <div>
     <ul>
-      <li><button><a href="#">Выгрузить список всех заказов</a></button></li>
-      <li><button><a href="#">Выгрузить информацию о клиентах</a></button></li>
+      <li><button><a href="/personalArea/downloadProducts">Скачать список всех заказов</a></button></li>
+      <li><button><a href="/personalArea/download">Выгрузить информацию о клиентах</a></button></li>
     </ul>
   </div>
-  <div>
+  <div class="container-orders">
     <h3>Заказы</h3>
-    {{#each orders}}
-      <p>{{this.name}}</p>
-      <p>{{this.email}}</p>
-      <p>{{this.phone}}</p>
-      <p>{{this.message}}</p>
-
-      <div>
-        {{#each img}}
-          <img src="{{this.img}}">
-        {{/each }}
-      </div>
-    {{/each }}
-  </div>
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>имя</th>
+        <th>тел</th>
+        <th>сообщение</th>
+        <th>почта</th>
+        <th>эскиз</th>
+      </tr>
+      {{#each clients}}     
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.message}}</td>
+        <td>{{this.email}}</td>
+        {{#each this.dataValues.Pictures}}
+        <td>{{this.img}}</td>
+        {{/each}}
+      </tr>
+      {{/each }}
+    </table>
 </div>
