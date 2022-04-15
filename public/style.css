@@ -49,7 +49,12 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat Alternates', sans-serif;
@@ -90,6 +95,12 @@ header {
   transform: scale(1.2);
 }
 
+.adminPanel {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
 /* _____________________________ Слайдер ________________________________ */
 
 .slider {
@@ -123,9 +134,7 @@ header {
 .border-button {
   text-decoration: none;
   display: inline-block;
-  padding: 20px 30px;
-  margin: 10px 20px;
-  position: absolute;
+  padding: 20px 0px;
   color: white;
   border: 1px solid rgba(255, 255, 255, .4);
   background: none;
@@ -133,8 +142,11 @@ header {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  top: 85%;
-  left: 43%;
+  position: absolute;
+  right: 40%;
+  left: 40%;
+  top: 86vh;
+  text-align: center;
 }
 
 .border-button:before,
@@ -199,7 +211,7 @@ header {
 }
 
 #cards-and-name h3 {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   color: #ee247c;
 }
 
@@ -294,13 +306,13 @@ h4 {
 /* __________________________________ О Нас _____________________________________ */
 
 #aboutus {
-  padding-top: 100px;
+  padding-top: 75px;
   margin-top: -70px;
   -webkit-background-clip: content-box;
   background-clip: content-box;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 60%;
   height: auto;
   text-align: center;
 }
@@ -310,25 +322,34 @@ h4 {
   font-size: 50px;
   margin: 0;
   margin-top: 20px;
+  margin-bottom: 20px;
+  color: #ee247c;
 }
 
 #aboutus h3 {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 900;
+  margin-bottom: 20px;
 }
 
 #aboutus p {
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
+/* _______________________________________________________________________ */
+
 .title-order-form {
   margin: 20px;
+  color: #ee247c;
   font-size: 1.7rem;
   font-weight: 600;
-  cursor: pointer;
 }
 
-.container {
+#orderForm {
+  padding-top: 60px;
+  margin-top: -70px;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -338,6 +359,8 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 75px;
+  margin-top: -70px;
   margin: 40px;
   padding: 40px;
   max-width: 1200px;
@@ -380,12 +403,66 @@ h4 {
   width: 200px;
   height: 50px;
   color: rgb(255, 255, 255);
-  background-color: rgb(71, 71, 71);
+  background-color: #ee247c;
   outline: none;
   border: none;
 }
 
-/* ___________________________________________________________________________________________ */
+/* ____________________________________Footer_________________________________________ */
+
+footer {
+  height: 4rem;
+  background-color: #ee247c;
+  -webkit-box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+#foot {
+  width: inherit;
+  height: inherit;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ________________________________ Socials icons _______________________________ */
+
+.fa {
+  padding: 7px;
+  font-size: 20px;
+  width: 45px;
+  text-align: center;
+  margin: 5px 2px;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+/* _____________________________________________________________________________ */
 
 h1 {
   margin-bottom: 125px !important;
@@ -427,9 +504,177 @@ h1 {
 .err {
   color: red;
 }
-/* __________________________________ стили для кабинета Админа _____________________________________ */
+
+/* _______________________________ стили для кабинета Админа ___________________________ */
 
 .container-personalArea {
   margin: 100px;
 }
 
+.container-orders {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+}
+
+.orders {
+  flex-direction: column;
+  display: flex
+}
+
+.order-info {
+  margin: 10px;
+  font-size: 24px;
+}
+
+table tr th,
+table tr td {
+  padding: 10px;
+  border: 1px groove black;
+
+}
+
+table tr td img {
+  width: auto;
+  height: 60px;
+}
+
+/* _____________________________ Медиа-запросы ____________________________ */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+
+  .adminPanel {
+    width: 17%;
+  }
+
+  #mainButtons {
+    width: 50% !important;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+
+  #navbar {
+    justify-content: space-around;
+  }
+
+  #allFooter {
+    margin: 0;
+    justify-content: space-around;
+  }
+
+  .adminPanel {
+    width: 20%;
+  }
+
+  #logo {
+    width: 60px;
+    height: 55px;
+  }
+
+  .logoText {
+    font-size: 30px;
+  }
+
+  #nav_buttons {
+    padding: 0;
+    width: 165px;
+    margin-right: 20px;
+  }
+
+  #mainButtons {
+    font-size: large !important;
+    width: 45% !important;
+    text-align: start !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+
+  #navbar {
+    justify-content: space-around;
+  }
+
+  #allFooter {
+    margin: 0;
+    justify-content: space-around;
+  }
+
+  .adminPanel {
+    width: 20%;
+    flex-direction: column;
+  }
+
+  .adminPanel div {
+    padding: 0;
+  }
+
+  #adminHello {
+    padding: 0;
+  }
+
+  #logo {
+    width: 50px;
+    height: 45px;
+  }
+
+  .logoText {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  #nav_buttons {
+    padding: 0;
+    width: 165px;
+    margin-right: 20px;
+  }
+
+  #mainButtons {
+    font-size: large !important;
+    width: 45% !important;
+    text-align: start !important;
+    flex-direction: column;
+  }
+}
+
+/* .facts-item img {
+  width: 20%;
+}
+
+.fact-count h3 {
+  font-size: 2rem;
+}
+
+.fact-count h4 {
+  font-size: 1rem;
+} */
+
+@media (min-width: 580px) and (max-width: 1000px) {
+
+  .facts-item img {
+    width: 20%;
+  }
+
+  .fact-count h3 {
+    font-size: 2rem;
+  }
+
+  .fact-count h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 579px) {
+  .facts-item img {
+    width: 10%;
+  }
+
+  .fact-count h3 {
+    font-size: 2rem;
+  }
+
+  .fact-count h4 {
+    font-size: 1rem;
+  }
+}

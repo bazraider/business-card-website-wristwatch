@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('path');
 // const bcrypt = require('bcrypt'); // шифрование пароля
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
@@ -15,6 +16,7 @@ const personalAreaRouter = require('./routes/personalAreaRouter');
 const indexRouter = require('./routes/indexRouter');
 const orderFormRouter = require('./routes/orderFormRouter');
 const adminRouter = require('./routes/adminRouter');
+const watchesRouter = require('./routes/watchesRouter');
 const { adminName, sessionLogger } = require('./middleware/common');
 
 const app = express();
@@ -31,7 +33,12 @@ const sessionConfig = {
   saveUninitialized: false,
 };
 
-app.locals.title = 'Магазин часов';
+const corsConfig = {
+  // Домены которым разрешен доступ к файлам
+  origin: ['http://localhost:3001', 'http://localhost:4000', 'http://localhost:5000'],
+};
+
+app.locals.title = 'Watchers | Магазин часов';
 
 // app.set — задать внутренние настройки сервера
 app.set('view engine', 'hbs'); // задать движок для генерации шаблонов
@@ -41,6 +48,7 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials')); // задать
 app.use(cookieParser());
 app.use(expressSession(sessionConfig));
 app.use(adminName);
+app.use(cors(corsConfig));
 
 // app.use — подключить промежуточные функции
 app.use(express.urlencoded({ extended: true })); // для чтения тела запросов в формате urlencoded
@@ -53,6 +61,11 @@ app.use('/', indexRouter);
 app.use('/', orderFormRouter);
 app.use('/', adminRouter);
 app.use('/personalArea', personalAreaRouter);
+app.use('/watches', watchesRouter);
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {

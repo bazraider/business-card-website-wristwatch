@@ -1,26 +1,23 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Clients', {
+    await queryInterface.createTable('Pictures', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      img: {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      email: {
+      clientId: {
         allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      phone: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-      },
-      message: {
-        type: Sequelize.TEXT,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Clients',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +30,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Clients');
+    await queryInterface.dropTable('Pictures');
   },
 };

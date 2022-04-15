@@ -1,6 +1,8 @@
 const adminRouter = require('express').Router();
 const bcrypt = require('bcrypt');
+const async = require('hbs/lib/async');
 const { Admin, Product } = require('../db/models');
+const multer = require('../middleware/multer.middleware');
 
 adminRouter.get('/login', async (req, res) => {
   res.render('admin/login');
@@ -57,14 +59,85 @@ adminRouter.get('/logout', async (req, res) => {
     res.clearCookie('MyCookieName');
     res.redirect('/');
   } else {
-    res.redirect('main');
+    res.redirect('/');
   }
 });
 
 adminRouter.delete('/products/delete', async (req, res) => {
-  const { id } = req.body;
-  await Product.destroy({ where: { id } });
-  res.sendStatus(200);
+  if (req.session.admin) {
+    const { id } = req.body;
+    await Product.destroy({ where: { id } });
+    res.sendStatus(200);
+  } else {
+    res.redirect('/');
+  }
+});
+
+// Ручка на редактирование товара
+adminRouter.get('/products/edit/:id', async (req, res) => {
+  if (req.session.admin) {
+    const entry = await Product.findOne({ where: { id: req.params.id } });
+    res.render('admin/edit', { entry });
+  } else {
+    res.redirect('/');
+  }
+});
+
+adminRouter.post('/products/edit/:id', multer.single('img'), async (req, res) => {
+  if (req.session.admin) {
+    const { title, description, price } = req.body;
+    const { path } = req.file;
+    await Product.update(
+      {
+        title: req.body.title,
+        description: req.body.description,
+        img: path.slice(6),
+        price: req.body.price,
+      },
+      {
+        where: { id: req.params.id },
+        returning: true,
+        plain: true,
+      },
+    );
+    res.redirect('/');
+  } else {
+    res.redirect('/');
+  }
+});
+
+// Ручка на добавление нового товара
+adminRouter.get('/products/newcard', async (req, res) => {
+  if (req.session.admin) {
+    res.render('admin/newcard');
+  } else {
+    res.redirect('/');
+  }
+});
+
+adminRouter.post('/products/newcard', multer.single('img'), async (req, res) => {
+  if (req.session.admin) {
+    const {
+      id, title, description, price,
+    } = req.body;
+    const { path } = req.file;
+    await Product.create(
+      {
+        title,
+        description,
+        img: path.slice(6),
+        price,
+      },
+      {
+        where: { id },
+        returning: true,
+        plain: true,
+      },
+    );
+    res.redirect('/');
+  } else {
+    res.redirect('/');
+  }
 });
 
 module.exports = adminRouter;
