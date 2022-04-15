@@ -10,7 +10,7 @@ const CsvParser = require('json2csv').Parser;
 
 router.get('/', async (req, res) => {
   const clients = await Client.findAll({ include: Picture });
-  console.log(clients);
+  // console.log(clients);
   res.render('admin/personalArea', { clients });
 });
 
