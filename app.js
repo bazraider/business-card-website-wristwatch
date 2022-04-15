@@ -11,6 +11,7 @@ const expressSession = require('express-session');
 const FileStore = require('session-file-store')(expressSession);
 const hbs = require('hbs');
 const { sequelize } = require('./db/models');
+const personalAreaRouter = require('./routes/personalAreaRouter');
 const indexRouter = require('./routes/indexRouter');
 const orderFormRouter = require('./routes/orderFormRouter');
 const adminRouter = require('./routes/adminRouter');
@@ -51,6 +52,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', orderFormRouter);
 app.use('/', adminRouter);
+app.use('/personalArea', personalAreaRouter);
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {

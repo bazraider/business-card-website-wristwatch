@@ -22,6 +22,12 @@
       <a id="nav_buttons" class="nav-link col" href="/#orderForm" style="color: #ee247c;">
         <div>Заказать</div>
       </a>
+      {{#if admin}}
+      <div class="nav-link col" > <a href="/personalArea">Привет, {{admin}}!</a></div>
+      <a class="nav-link col" href="/logout">
+        <div>Выйти</div>
+      </a>
+      {{/if}}
     </div>
   </div>
   </div>
