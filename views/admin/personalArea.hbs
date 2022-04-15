@@ -24,9 +24,11 @@
         <td>{{this.phone}}</td>
         <td>{{this.message}}</td>
         <td>{{this.email}}</td>
-        {{#each this.dataValues.Pictures}}
-        <td>{{this.img}}</td>
-        {{/each}}
+        <td>
+          {{#each this.dataValues.Pictures}}
+          <p>{{this.img}}</p>
+          {{/each}}
+        </td>
       </tr>
       {{/each }}
     </table>
