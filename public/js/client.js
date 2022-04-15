@@ -29,7 +29,7 @@ const handleOrderForm = async (event) => {
     formdata.append('img', img.files[i], img.files[i].name);
   }
 
-  console.log('formdata', formdata);
+  // console.log('formdata', formdata);
 
   const response = await fetch('/', {
     method: 'POST',
@@ -48,8 +48,8 @@ const handleOrderForm = async (event) => {
 
   const messageStatus = document.createElement('p');
   const messageContainer = document.querySelector('.success-or-failure');
-  console.log('messageStatus', messageStatus);
-  console.log('messageContainer', messageContainer);
+  // console.log('messageStatus', messageStatus);
+  // console.log('messageContainer', messageContainer);
 
   const result = await response.json();
 
