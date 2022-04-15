@@ -534,3 +534,8 @@ table tr td {
   border: 1px groove black;
 
 }
+
+table tr td img {
+  width: auto;
+  height: 60px;
+}
