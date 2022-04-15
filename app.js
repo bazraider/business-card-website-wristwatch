@@ -31,7 +31,7 @@ const sessionConfig = {
   saveUninitialized: false,
 };
 
-app.locals.title = 'Магазин часов';
+app.locals.title = 'Watchers | Магазин часов';
 
 // app.set — задать внутренние настройки сервера
 app.set('view engine', 'hbs'); // задать движок для генерации шаблонов
@@ -53,6 +53,10 @@ app.use('/', indexRouter);
 app.use('/', orderFormRouter);
 app.use('/', adminRouter);
 app.use('/personalArea', personalAreaRouter);
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 // Запуск сервера — начать прослушивание порта
 app.listen(PORT, async () => {
