@@ -85,8 +85,7 @@
 <div id="cards-and-name">
   <h3>Примеры работ</h3>
   {{#if admin}}
-  <a href="/products/newcard"><button type="button" class="btn btn-secondary js-newcard"
-      style="margin-bottom: 2rem;">Добавить новый товар</button></a>
+  <a href="/products/newcard" class="btn btn-secondary js-newcard" style="margin-bottom: 2rem;">Добавить новый товар</a>
   {{/if}}
   <div id="cards" class="js-products">
     {{#each products}}
@@ -95,11 +94,7 @@
       <h2>{{this.title}}</h2>
       <p>{{this.description}}</p>
       <h3>{{this.price}} $</h3>
-
-      <a href="/products/edit/{{this.id}}">
-        <button type="button" class="btn btn-secondary js-hidden">Редактировать</button>
-      </a>
-
+      <a href="/products/edit/{{this.id}}" class="btn btn-secondary js-hidden">Редактировать</a>
       <button type="button" class="btn btn-danger js-hidden js-delete" id="delete{{this.id}}"
         style="margin-top: 10px;">Удалить</button>
     </div>
