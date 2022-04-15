@@ -134,7 +134,7 @@ header {
 .border-button {
   text-decoration: none;
   display: inline-block;
-  padding: 20px 30px;
+  padding: 20px 0px;
   color: white;
   border: 1px solid rgba(255, 255, 255, .4);
   background: none;
@@ -636,9 +636,38 @@ table tr td img {
     text-align: start !important;
     flex-direction: column;
   }
+}
+
+/* .facts-item img {
+  width: 20%;
+}
+
+.fact-count h3 {
+  font-size: 2rem;
+}
+
+.fact-count h4 {
+  font-size: 1rem;
+} */
+
+@media (min-width: 580px) and (max-width: 1000px) {
 
   .facts-item img {
     width: 20%;
+  }
+
+  .fact-count h3 {
+    font-size: 2rem;
+  }
+
+  .fact-count h4 {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 579px) {
+  .facts-item img {
+    width: 10%;
   }
 
   .fact-count h3 {
