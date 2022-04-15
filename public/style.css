@@ -505,7 +505,7 @@ h1 {
   color: red;
 }
 
-/* __________________________________ стили для кабинета Админа _____________________________________ */
+/* _______________________________ стили для кабинета Админа ___________________________ */
 
 .container-personalArea {
   margin: 100px;
@@ -538,4 +538,114 @@ table tr td {
 table tr td img {
   width: auto;
   height: 60px;
+}
+
+/* _____________________________ Медиа-запросы ____________________________ */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+
+  .adminPanel {
+    width: 17%;
+  }
+
+  #mainButtons {
+    width: 50% !important;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+
+  #navbar {
+    justify-content: space-around;
+  }
+
+  #allFooter {
+    margin: 0;
+    justify-content: space-around;
+  }
+
+  .adminPanel {
+    width: 20%;
+  }
+
+  #logo {
+    width: 60px;
+    height: 55px;
+  }
+
+  .logoText {
+    font-size: 30px;
+  }
+
+  #nav_buttons {
+    padding: 0;
+    width: 165px;
+    margin-right: 20px;
+  }
+
+  #mainButtons {
+    font-size: large !important;
+    width: 45% !important;
+    text-align: start !important;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+
+  #navbar {
+    justify-content: space-around;
+  }
+
+  #allFooter {
+    margin: 0;
+    justify-content: space-around;
+  }
+
+  .adminPanel {
+    width: 20%;
+    flex-direction: column;
+  }
+
+  .adminPanel div {
+    padding: 0;
+  }
+
+  #adminHello {
+    padding: 0;
+  }
+
+  #logo {
+    width: 50px;
+    height: 45px;
+  }
+
+  .logoText {
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  #nav_buttons {
+    padding: 0;
+    width: 165px;
+    margin-right: 20px;
+  }
+
+  #mainButtons {
+    font-size: large !important;
+    width: 45% !important;
+    text-align: start !important;
+    flex-direction: column;
+  }
+
+  .facts-item img {
+    width: 20%;
+  }
+
+  .fact-count h3 {
+    font-size: 2rem;
+  }
+
+  .fact-count h4 {
+    font-size: 1rem;
+  }
 }
