@@ -16,8 +16,8 @@ router.post('/', multer.array('img'), async (req, res) => {
     } = req.body;
     // const { path } = req.files;
 
-    console.log(name, email, phone, message);
-    console.log(req.files[0].path);
+    // console.log(name, email, phone, message);
+    // console.log(req.files[0].path);
 
     const clientC = await db.Client.create(
       {
@@ -40,9 +40,11 @@ router.post('/', multer.array('img'), async (req, res) => {
     };
     mailer(emailMessage);
 
-    await db.Picture.bulkCreate(req.files.map((file) => ({
-      img: file.path.slice(6), clientId: clientC.id, createdAt: new Date(), updatedAt: new Date(),
-    })));
+    if (req.files) {
+      await db.Picture.bulkCreate(req.files.map((file) => ({
+        img: file.path.slice(6), clientId: clientC.id, createdAt: new Date(), updatedAt: new Date(),
+      })));
+    }
 
     res.send({ success: true });
   } catch (error) {
