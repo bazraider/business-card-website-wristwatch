@@ -8,16 +8,9 @@ const router = express.Router();
 
 router.post('/', multer.array('img'), async (req, res) => {
   try {
-  // console.log(name, email, phone, message);
-  // console.log(path);
-
     const {
       name, email, phone, message,
     } = req.body;
-    // const { path } = req.files;
-
-    // console.log(name, email, phone, message);
-    // console.log(req.files[0].path);
 
     const clientC = await db.Client.create(
       {
