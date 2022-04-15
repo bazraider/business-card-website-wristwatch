@@ -525,3 +525,10 @@ h1 {
   margin: 10px;
   font-size: 24px;
 }
+
+table tr th,
+table tr td {
+  padding: 10px;
+  border: 1px groove black;
+
+}
