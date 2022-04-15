@@ -434,3 +434,19 @@ h1 {
   margin: 100px;
 }
 
+.container-orders {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  flex-direction: column;
+}
+
+.orders {
+  flex-direction: column;
+  display: flex
+}
+
+.order-info {
+  margin: 10px;
+  font-size: 24px;
+}
