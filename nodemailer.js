@@ -5,11 +5,11 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: 'watchers.elbrus@bk.ru',
-    pass: '84bAGBDQ5WH2mM1Z0Pq1',
+    user: 'projects-edu@bk.ru',
+    pass: 'J0zzqZggLX93eAe1jSHL',
   },
 }, {
-  from: 'Watchers Shop <watchers.elbrus@bk.ru>',
+  from: 'Watchers Admin <projects-edu@bk.ru>',
 });
 
 const mailer = (message) => {
