@@ -6,7 +6,8 @@
     </a>
     {{#if admin}}
     <div class="adminPanel">
-      <div class="nav-link col" style="text-align: center;">Привет, {{admin}}!</div>
+      <div class="nav-link col" style="text-align: center;"><a href="/personalArea"
+          style="text-decoration: none;">Привет, {{admin}}!</a></div>
       <a class="nav-link col" style="text-align: center;" href="/logout">
         <div>Выйти</div>
       </a>
@@ -22,12 +23,6 @@
       <a id="nav_buttons" class="nav-link col" href="/#orderForm" style="color: #ee247c;">
         <div>Заказать</div>
       </a>
-      {{#if admin}}
-      <div class="nav-link col" > <a href="/personalArea">Привет, {{admin}}!</a></div>
-      <a class="nav-link col" href="/logout">
-        <div>Выйти</div>
-      </a>
-      {{/if}}
     </div>
   </div>
   </div>
