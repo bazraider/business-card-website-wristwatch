@@ -10,17 +10,10 @@ module.exports = {
       name: {
         allowNull: false,
         type: Sequelize.TEXT,
-        validate: {
-          notEmpty: true,
-        },
       },
       email: {
         allowNull: false,
         type: Sequelize.TEXT,
-        unique: true,
-        validate: {
-          notEmpty: true,
-        },
       },
       phone: {
         allowNull: false,

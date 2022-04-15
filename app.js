@@ -48,7 +48,7 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials')); // задать
 app.use(cookieParser());
 app.use(expressSession(sessionConfig));
 app.use(adminName);
-// app.use(cors());
+app.use(cors(corsConfig));
 
 // app.use — подключить промежуточные функции
 app.use(express.urlencoded({ extended: true })); // для чтения тела запросов в формате urlencoded

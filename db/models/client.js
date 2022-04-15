@@ -24,17 +24,10 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       allowNull: false,
       type: DataTypes.TEXT,
-      validate: {
-        notEmpty: true,
-      },
     },
     email: {
       allowNull: false,
       type: DataTypes.TEXT,
-      unique: true,
-      validate: {
-        notEmpty: true,
-      },
     },
     phone: {
       allowNull: false,
