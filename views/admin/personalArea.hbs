@@ -1,23 +1,26 @@
-<div class="container-personalArea">
-  <h1 class="head">Личный кабинет</h1>
+<div class="container-personalArea" style="flex: 1 1 auto;">
+  <h3 style="color: #ee247c; margin-bottom: 30px;">Личный кабинет</h3>
   <div>
-    <ul>
-      <li><button><a href="/personalArea/downloadProducts">Скачать список всех заказов</a></button></li>
-      <li><button><a href="/personalArea/download">Скачать информацию о клиентах</a></button></li>
-    </ul>
+    <button style="margin-bottom: 10px;r"><a href="/personalArea/downloadProducts"
+        style="text-decoration: none;">Скачать
+        список
+        всех заказов</a></button>
+    <button style="display: block; margin-bottom: 30px;"><a href="/personalArea/download"
+        style="text-decoration: none;">Скачать информацию о
+        клиентах</a></button>
   </div>
-  <div class="container-orders">
-    <h3>Заказы</h3>
+  <div class=" container-orders">
+    <h3 style="color: #ee247c;">Заказы</h3>
     <table border="1">
-      <tr>
-        <th>id</th>
-        <th>имя</th>
-        <th>тел</th>
-        <th>сообщение</th>
-        <th>почта</th>
-        <th>эскиз</th>
+      <tr style="text-align: center;">
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Тел</th>
+        <th>Сообщение</th>
+        <th>Почта</th>
+        <th>Эскиз</th>
       </tr>
-      {{#each clients}}     
+      {{#each clients}}
       <tr>
         <td>{{this.id}}</td>
         <td>{{this.name}}</td>
@@ -32,4 +35,5 @@
       </tr>
       {{/each }}
     </table>
+  </div>
 </div>
