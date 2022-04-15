@@ -49,7 +49,12 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat Alternates', sans-serif;
@@ -90,6 +95,12 @@ header {
   transform: scale(1.2);
 }
 
+.adminPanel {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
 /* _____________________________ Слайдер ________________________________ */
 
 .slider {
@@ -124,8 +135,6 @@ header {
   text-decoration: none;
   display: inline-block;
   padding: 20px 30px;
-  margin: 10px 20px;
-  position: absolute;
   color: white;
   border: 1px solid rgba(255, 255, 255, .4);
   background: none;
@@ -133,8 +142,11 @@ header {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
-  top: 85%;
-  left: 43%;
+  position: absolute;
+  right: 40%;
+  left: 40%;
+  top: 86vh;
+  text-align: center;
 }
 
 .border-button:before,
@@ -294,13 +306,13 @@ h4 {
 /* __________________________________ О Нас _____________________________________ */
 
 #aboutus {
-  padding-top: 100px;
+  padding-top: 75px;
   margin-top: -70px;
   -webkit-background-clip: content-box;
   background-clip: content-box;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 60%;
   height: auto;
   text-align: center;
 }
@@ -310,26 +322,34 @@ h4 {
   font-size: 50px;
   margin: 0;
   margin-top: 20px;
+  margin-bottom: 20px;
+  color: #ee247c;
 }
 
 #aboutus h3 {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 900;
+  margin-bottom: 20px;
 }
 
 #aboutus p {
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
+/* _______________________________________________________________________ */
+
 .title-order-form {
   margin: 20px;
   color: #ee247c;
   font-size: 1.7rem;
   font-weight: 600;
-  cursor: pointer;
 }
 
-.container {
+#orderForm {
+  padding-top: 60px;
+  margin-top: -70px;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -339,6 +359,8 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 75px;
+  margin-top: -70px;
   margin: 40px;
   padding: 40px;
   max-width: 1200px;
@@ -386,7 +408,60 @@ h4 {
   border: none;
 }
 
-/* ___________________________________________________________________________________________ */
+/* ____________________________________Footer_________________________________________ */
+
+footer {
+  height: 4rem;
+  background-color: #ee247c;
+  -webkit-box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px -5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+#foot {
+  width: inherit;
+  height: inherit;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ________________________________ Socials icons _______________________________ */
+
+.fa {
+  padding: 7px;
+  font-size: 20px;
+  width: 45px;
+  text-align: center;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+/* _____________________________________________________________________________ */
 
 h1 {
   margin-bottom: 125px !important;
