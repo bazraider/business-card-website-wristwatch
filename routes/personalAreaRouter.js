@@ -1,12 +1,10 @@
 const express = require('express');
 
 const router = express.Router();
-// const csvController = require('../public/js/csv.controller');
+const CsvParser = require('json2csv').Parser;
 const { append } = require('express/lib/response');
 const async = require('hbs/lib/async');
 const { Client, Product, Picture } = require('../db/models');
-const multer = require('../middleware/multer.middleware');
-const CsvParser = require('json2csv').Parser;
 
 router.get('/', async (req, res) => {
   const clients = await Client.findAll({ include: Picture });
