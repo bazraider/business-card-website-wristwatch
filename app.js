@@ -17,7 +17,7 @@ const indexRouter = require('./routes/indexRouter');
 const orderFormRouter = require('./routes/orderFormRouter');
 const adminRouter = require('./routes/adminRouter');
 const watchesRouter = require('./routes/watchesRouter');
-const { adminName, sessionLogger } = require('./middleware/common');
+const { adminName } = require('./middleware/common');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
