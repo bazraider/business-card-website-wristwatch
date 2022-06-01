@@ -30,6 +30,7 @@
 <p>&nbsp;</p>
 
 ### В своем личном кабинете администратор может посмотреть все заказы, а так же скачать список всех товаров или клиентов в csv файл.
+
 ![](https://i.imgur.com/ln2Dj1w.png)
 <p>&nbsp;</p>
 
@@ -46,4 +47,3 @@ PORT=3000
 + `npx sequelize db:migrate`
 + `npx sequelize db:seed:all`
 + для запуска `npm run dev`
-
