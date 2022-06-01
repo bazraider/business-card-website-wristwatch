@@ -30,4 +30,20 @@
 <p>&nbsp;</p>
 
 ### В своем личном кабинете администратор может посмотреть все заказы, а так же скачать список всех товаров или клиентов в csv файл.
+
 ![](https://i.imgur.com/ln2Dj1w.png)
+<p>&nbsp;</p>
+
+**<h1 style="text-align: center">Как запустить сайт</h1>**
+### Для работы сайта необходим Node.js и PostgreSQL.
+### В проекте должен быть файл .env с содержанием на основе шаблона:
+```
+DATABASE_URL=postgres://user:password@hostname:port/dbname
+PORT=3000
+```
++ `npm i`
++ `npx sequelize init`
++ `npx sequelize db:create`
++ `npx sequelize db:migrate`
++ `npx sequelize db:seed:all`
++ для запуска `npm run dev`
