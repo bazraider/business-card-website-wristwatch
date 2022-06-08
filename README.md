@@ -6,9 +6,6 @@
 ### JavaScript, Node.js, Handlebars Express, express-session, Bcrypt, json2csv, multer, Nodemailer, PostgreSQL, Sequelize ORM.
 <p>&nbsp;</p>
 
-## **Над проектом так же работали**: [Merdzhen](https://github.com/Merdzhen) [bazraider](https://github.com/bazraider) [DimaShtGitHub](https://github.com/DimaShtGitHub)
-<p>&nbsp;</p>
-
 **<h1 style="text-align: center">Функционал</h1>**
 
 ### На главной странице, которая расположена во всю ширину экрана, реализована карусель и отдельные элементы анимации. После главной страницы идут примеры работ, небольшой паралакс со статистикой и информация "О нас". Завершает все это форма отправки заявок.
