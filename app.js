@@ -33,11 +33,6 @@ const sessionConfig = {
   saveUninitialized: false,
 };
 
-const corsConfig = {
-  // Домены которым разрешен доступ к файлам
-  origin: ['http://localhost:3001', 'http://localhost:4000', 'http://localhost:5000'],
-};
-
 app.locals.title = 'Watchers | Магазин часов';
 
 // app.set — задать внутренние настройки сервера
@@ -45,10 +40,10 @@ app.set('view engine', 'hbs'); // задать движок для генера�
 app.set('views', path.join(__dirname, 'views')); // задать папку с шаблонами
 hbs.registerPartials(path.join(__dirname, 'views', 'partials')); // задать папку с частичными шаблонами (partials)
 
+app.use(cors());
 app.use(cookieParser());
 app.use(expressSession(sessionConfig));
 app.use(adminName);
-app.use(cors(corsConfig));
 
 // app.use — подключить промежуточные функции
 app.use(express.urlencoded({ extended: true })); // для чтения тела запросов в формате urlencoded
